@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import { apiBase } from '../../api';
 import ListQuestions from '../ListQuestions/ListQuestions';
@@ -10,14 +10,17 @@ function App() {
     fetch(`${apiBase}/search?intitle=react&site=stackoverflow`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setQuestions(data.items);
       })
   }, [])
 
   return (
     <div className="App">
-      <ListQuestions list={questions} />
+      { !questions ?
+        <h2>Loading...</h2>
+        :
+        <ListQuestions list={questions} />
+      }
     </div>
   );
 }
