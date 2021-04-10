@@ -1,0 +1,26 @@
+.list-questions {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    li {
+        margin: 10px;
+    }
+}
+
+.question__block {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #222;
+}
+
+.question__avatar {
+    width: auto;
+    height: 35px;
+    margin: 5px;
+    border-radius: 50%;
+}

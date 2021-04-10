@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import './ListQuestions.scss';
 
 function ListQuestions({ list, sortDirection }: { list:Array<Object>, sortDirection:boolean }) {
 
@@ -6,12 +7,19 @@ function ListQuestions({ list, sortDirection }: { list:Array<Object>, sortDirect
         console.log(list);
     }, [])
 
-    const listRender = list.map((item:any) => (
-        <li key={item.question_id}>{item.title}</li>
+    const listRender = list.map((question:any) => (
+        <li key={question.question_id}>
+            <a href={question.link} className="question__block">
+                <img src={question.owner.profile_image}
+                    alt={question.owner.display_name}
+                    className={"question__avatar"} />
+                {question.title}
+            </a>
+        </li>
     ))
 
     return (
-        <ul>
+        <ul className="list-questions">
             {listRender}
         </ul>
     )
